@@ -9,3 +9,6 @@ assets/website-drive.zip
 # Editors
 .vscode/
 .idea/
+
+# The brand kit download is the one zip that ships with the site
+!assets/brand/CWG-Brand-Kit.zip
