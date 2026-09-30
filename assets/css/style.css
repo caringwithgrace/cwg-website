@@ -1563,3 +1563,90 @@ h1, h2, h3 { text-wrap: balance; }
 .service-area-note a { color: var(--primary); font-weight: 600; }
 .footer-area { max-width: var(--container-max); margin: 26px auto 0; padding: 0 32px; text-align: center; font-size: 0.82rem; line-height: 1.6; color: rgba(255,255,255,0.72); }
 .footer-area a { color: rgba(255,255,255,0.9); text-decoration: underline; white-space: nowrap; }
+
+/* 2026-09-29 (Melissa): taller header ribbon so the company name and the menu can be larger.
+   Restates every breakpoint because these rules sit after the earlier header blocks. */
+.site-header { height: 116px; }
+.site-logo-mark { width: 84px; }
+.site-logo-word { height: 62px; }
+.site-nav { gap: 28px; }
+.site-nav a, .nav-drop-btn { font-size: 1.08rem; }
+@media (max-width: 1560px) {
+  .site-header { height: 112px; }
+  .site-logo-mark { width: 80px; }
+  .site-logo-word { height: 54px; }
+  .site-nav { gap: 22px; }
+  .site-nav a, .nav-drop-btn { font-size: 1rem; }
+}
+@media (max-width: 1400px) {
+  .site-header { height: 104px; }
+  .site-logo-mark { width: 70px; }
+  .site-logo-word { height: 46px; }
+  .site-nav { gap: 16px; }
+  .site-nav a, .nav-drop-btn { font-size: 0.92rem; }
+}
+@media (max-width: 1260px) {
+  .site-header { height: 96px; }
+  .site-logo-mark { width: 60px; }
+  .site-logo-word { height: 40px; }
+  .site-nav { gap: 13px; }
+  .site-nav a, .nav-drop-btn { font-size: 0.84rem; }
+}
+@media (max-width: 1160px) {
+  .site-logo-mark { width: 54px; }
+  .site-logo-word { height: 36px; }
+  .site-nav { gap: 12px; }
+  .site-nav a, .nav-drop-btn { font-size: 0.8rem; }
+}
+@media (max-width: 1080px) {
+  .site-logo-mark { width: 50px; }
+  .site-logo-word { height: 32px; }
+}
+/* 2026-09-30: the hamburger menu now starts at 1080px (was 720px). Between the two the full menu
+   wrapped and Contact Us ran off the edge on a tablet held upright. Same menu rules as the phone block. */
+@media (max-width: 1080px) {
+  .site-header { height: 88px; }
+  .site-logo-mark { width: 58px; }
+  .site-logo-word { height: 40px; }
+  .site-nav { display: none; }
+  .site-nav.open {
+    display: flex; position: absolute; top: 88px; left: 0; right: 0;
+    background: var(--white); flex-direction: column; align-items: stretch;
+    padding: 12px 28px 20px; gap: 0;
+    border-bottom: 1px solid var(--border); box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+    max-height: calc(100vh - 88px); max-height: calc(100dvh - 88px); overflow-y: auto;   /* long menu scrolls inside the screen */
+  }
+  .site-nav.open li { width: 100%; padding: 12px 0; border-bottom: 1px solid var(--border); }
+  .site-nav.open li:last-child { border-bottom: 0; }
+  .site-nav.open .dropdown li { border-bottom: 0; padding: 0; }
+  .site-nav a, .nav-drop-btn { font-size: 1rem; }
+  .site-nav.open .nav-cta { display: inline-block; }
+  .nav-toggle { display: block; }
+  .dropdown {
+    position: static; transform: none; opacity: 1; visibility: visible;
+    border: 0; box-shadow: none; min-width: 0; padding: 0 0 0 16px;
+  }
+  .nav-drop-btn { pointer-events: none; }
+  .site-nav.open .has-dropdown { padding-bottom: 4px; }
+}
+@media (max-width: 720px) {
+  .site-header { height: 78px; }
+  .site-nav.open { top: 78px; gap: 0; padding: 12px 20px 20px; max-height: calc(100vh - 78px); max-height: calc(100dvh - 78px); }
+  .site-logo-mark { width: 54px; }
+  .site-logo-word { height: 36px; }
+  .site-nav a, .nav-drop-btn { font-size: 1rem; }
+}
+
+/* 2026-09-29 (Melissa): gold from the 20-years banner for "Our Values" and a small gold leaf between the values */
+:root { --gold-accent: #C7A65A; }   /* Brushed Gold; --gold itself is a legacy name that now resolves to plum */
+.footer-values-label { color: var(--gold-accent); }
+.footer-values-list { gap: 10px 0; align-items: center; }
+.footer-values-list li { display: inline-flex; align-items: center; }
+.footer-values-list li + li::before {
+  content: ""; width: 15px; height: 15px; margin: 0 20px; flex: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M1.5 14.5C1 7 5.5 1.8 14.5 1.5 14.2 10.5 9 15 1.5 14.5Z' fill='%23C7A65A'/%3E%3Cpath d='M1.5 14.5 10 6' stroke='%231E2A44' stroke-width='.9' stroke-linecap='round' fill='none'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+@media (max-width: 860px) {
+  .footer-values-list { gap: 8px 24px; }
+  .footer-values-list li + li::before { display: none; }
+}
