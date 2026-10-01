@@ -1,4 +1,4 @@
-Caring with Grace brand kit (plum, updated September 30, 2026)
+Caring with Grace brand kit (plum, updated October 1, 2026)
 
 LOGO
 logo-primary-plum.png        Main logo, transparent background. Use on white or ivory.
