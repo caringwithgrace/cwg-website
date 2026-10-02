@@ -50,6 +50,13 @@ handles anything technical.
 - A new team member is a new `team-card` block in `team.html`, copied from an existing one.
 - `brand-guide.html` and `site-tutorial.html` are internal, password-protected pages. Their
   content is encrypted in `assets/brand/*.enc` and cannot be edited here.
+- `404.html` is shown for any address that does not exist, at any depth, so every link and
+  file path in it starts with `/` (`/about.html`, `/assets/...`). Keep the leading slash
+  when copying a menu or footer change into it.
+- Folders such as `about-us/`, `caringoncall/`, `blog/` and everything under `post/` each
+  hold one small page that forwards an address from the previous website to the right page
+  here, or to the same article on the newsletter site. The `CNAME` file tells GitHub which
+  domain the site lives at.
 
 ## Go ahead without asking Clay
 
@@ -66,7 +73,8 @@ existing one.
   elsewhere and edits here would be overwritten.
 - Deleting or renaming a page, or changing a page's address. People have saved links.
 - The menu structure, the page layout, fonts and colors.
-- `robots.txt`, `sitemap.xml`, `MIGRATION.md`, this file, and repository settings.
+- `robots.txt`, `sitemap.xml`, `CNAME`, the forwarding folders, `MIGRATION.md`, this file,
+  and repository settings.
 
 If a request needs one of these, say so plainly, do not attempt it, and suggest sending
 Clay a note that says what is wanted.
