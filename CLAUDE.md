@@ -39,7 +39,7 @@ handles anything technical.
 - Pages: `index.html` (home), `about.html` (Our Story), `team.html`,
   `care-management-services.html`, `caring-on-call.html` (shown in menus as "Care Management
   for Proactive Planners"), `thoughtful-engagement.html`, `for-professionals.html`,
-  `aging-life-care.html`, `resources.html`, `newsletter.html`, `contact.html`, `404.html`.
+  `aging-life-care.html`, `resources.html`, `newsletter.html`, `contact.html`, `privacy.html`, `404.html`.
 - The header menu and the footer are repeated in every page file. A change to either one
   has to be made in all of them, identically.
 - Styling is `assets/css/style.css`. Every page loads it as `style.css?v=NUMBER`. If you
