@@ -1,7 +1,9 @@
-Caring with Grace brand kit (plum, updated October 1, 2026)
+Caring with Grace brand kit (plum, updated October 6, 2026)
 
 LOGO
 logo-primary-plum.png        Main logo, transparent background. Use on white or ivory.
+                             All four transparent logo files are cropped close to the artwork
+                             (about 1,270 pixels wide: sharp up to about 4 inches at print quality).
 logo-primary-white.png       Reversed (all white), transparent. Use on plum or navy.
                              (Looks blank in a white preview window. It is there.)
 logo-primary-onecolor.png    Single-color plum, transparent. For one-color print.

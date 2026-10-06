@@ -455,13 +455,10 @@ p { line-height: 1.7; }
 }
 
 @media (max-width: 900px) {
-  .hero-carousel { height: 86vh; min-height: 540px; }
-  .carousel-content { padding: 0 28px; }
   .carousel-content h1 { font-size: 2.2rem; }
   .carousel-content .hero-lockup-name { font-size: 2.2rem; }
   .carousel-content .hero-lockup-tagline { font-size: 1rem; }
   .carousel-content p { font-size: 1rem; }
-  .carousel-content { padding-bottom: 84px; }
   .carousel-controls {
     bottom: 24px;
     right: 16px;
@@ -473,18 +470,6 @@ p { line-height: 1.7; }
   .carousel-dot.active { width: 24px; }
 }
 @media (max-width: 600px) {
-  .hero-carousel { height: auto; min-height: 0; }
-  .carousel-slides { position: relative; height: 92vh; min-height: 540px; }
-  .carousel-img { background-position: center 35%; }
-  .carousel-overlay {
-    background: linear-gradient(0deg, rgba(20,28,40,0.92) 0%, rgba(20,28,40,0.55) 50%, rgba(20,28,40,0.45) 100%);
-  }
-  .carousel-content {
-    padding: 0 22px;
-    align-self: flex-end;
-    padding-bottom: 100px;
-  }
-  .carousel-slide { align-items: flex-end; }
   .carousel-content h1 { font-size: 1.85rem; }
 }
 
@@ -1205,9 +1190,6 @@ section { padding: var(--section-pad) 32px; }
   background-size: 118% auto;
   background-position: 100% 30%;
 }
-@media (max-width: 900px) {
-  .carousel-slide.light .carousel-img { background-size: cover; background-position: center 30%; }
-}
 .carousel-slide.light .carousel-overlay {
   background: linear-gradient(100deg,
     rgba(246,244,239,0.97) 0%,
@@ -1232,15 +1214,6 @@ section { padding: var(--section-pad) 32px; }
   background: rgba(94,45,94,0.06);
   border-color: var(--primary);
   color: var(--primary-dark);
-}
-@media (max-width: 600px) {
-  .carousel-slide.light .carousel-overlay {
-    background: linear-gradient(0deg,
-      rgba(246,244,239,0.97) 0%,
-      rgba(246,244,239,0.85) 52%,
-      rgba(246,244,239,0.12) 100%);
-  }
-  .carousel-slide.light .hero-lockup-img { width: min(320px, 82vw); }
 }
 
 /* --- Expandable service tiles (3-across) --- */
@@ -1465,7 +1438,6 @@ a.nav-drop-btn { text-decoration: none; }
   display: flex; justify-content: center; flex-wrap: wrap; gap: 10px 44px;
   font-family: var(--heading-font); font-size: 1.35rem; color: rgba(255,255,255,0.92);
 }
-@media (max-width: 600px) { .footer-values-list { gap: 8px 24px; font-size: 1.15rem; } }
 
 /* Google review cards on the home page */
 .study-quotes.reviews blockquote {
@@ -1646,7 +1618,42 @@ h1, h2, h3 { text-wrap: balance; }
   content: ""; width: 15px; height: 15px; margin: 0 20px; flex: none;
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M1.5 14.5C1 7 5.5 1.8 14.5 1.5 14.2 10.5 9 15 1.5 14.5Z' fill='%23C7A65A'/%3E%3Cpath d='M1.5 14.5 10 6' stroke='%231E2A44' stroke-width='.9' stroke-linecap='round' fill='none'/%3E%3C/svg%3E") center / contain no-repeat;
 }
-@media (max-width: 860px) {
-  .footer-values-list { gap: 8px 24px; }
-  .footer-values-list li + li::before { display: none; }
+@media (max-width: 1000px) {
+  /* 2026-10-06 (Karen): the leaves stay on phones and tablets. Two fixed rows (three values, then two)
+     so a row never starts with a leaf. */
+  .footer-values { padding-left: 0; padding-right: 0; }
+  .footer-values-list { gap: 2px 0; font-size: clamp(0.875rem, 4.3vw, 1.35rem); }
+  .footer-values-list::before { content: ""; flex-basis: 100%; order: 1; }
+  .footer-values-list li:nth-child(n+4) { order: 2; }
+  .footer-values-list li + li::before { width: 13px; height: 13px; margin: 0 clamp(8px, 2.6vw, 20px); }
+  .footer-values-list li:nth-child(4)::before { display: none; }
+}
+
+/* 2026-10-06 (Tina, via Melissa): on phones and upright tablets the photo sits on top and the words go
+   underneath on ivory, so neither the logo nor the text covers a face. The slides share one grid cell and
+   take the height of the tallest. Photo crops are set per slide here (the inline desktop crops need
+   !important to override); the photo box keeps one shape (64vw tall) so those crops hold at every width. */
+@media (max-width: 900px) {
+  .hero-carousel { --hero-photo: max(220px, 64vw); height: auto; min-height: 0; max-height: none; padding: 0; background: var(--light); }
+  .carousel-slides { position: relative; display: grid; }
+  .carousel-slide { position: relative; inset: auto; grid-area: 1 / 1; flex-direction: column; align-items: stretch; background: var(--light); }
+  .carousel-slide.light .carousel-img {
+    position: relative; inset: auto; flex: none; height: var(--hero-photo);
+    transform: none; background-size: cover !important; background-position: center 30% !important;
+  }
+  .carousel-slide.light[data-slide="0"] .carousel-img { background-size: auto 135% !important; background-position: 100% 30% !important; }
+  .carousel-slide.light[data-slide="2"] .carousel-img { background-size: auto 122% !important; background-position: 62% 18% !important; }
+  .carousel-slide.light[data-slide="3"] .carousel-img { background-size: auto 170% !important; background-position: 100% 16% !important; }
+  .carousel-slide.light .carousel-overlay {
+    inset: 0 0 auto 0; height: var(--hero-photo);
+    background: linear-gradient(0deg, rgba(246,244,239,1) 0%, rgba(246,244,239,0) 24%);
+  }
+  .carousel-content { margin: 0; padding: 20px 24px 92px; }
+  .carousel-slide.light .hero-lockup-img { width: min(320px, 74vw); margin-top: -34px; }
+  .carousel-slide.light .carousel-content h1.hero-tagline { margin-top: calc(-0.155 * min(320px, 74vw)); }
+}
+@media (max-width: 900px) and (orientation: landscape) {
+  /* a phone on its side: a shorter photo, and plain cover crops because the box is much wider */
+  .hero-carousel { --hero-photo: 70vh; }
+  .carousel-slide.light[data-slide] .carousel-img { background-size: cover !important; }
 }
