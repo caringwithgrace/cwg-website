@@ -64,10 +64,19 @@ Wording on any page. Links, resources, books, reviews. Team members, bios, heads
 Photos. Hours, address, service-area cities. A new section built in the style of an
 existing one.
 
+The wording of the contact form on the Contact page: field labels, the helper sentence
+above the form, placeholder text, the choices in the "How did you hear about us?" list,
+the privacy note and the button text. Also whether an existing field is required or
+optional. To make a field required, add `required` to its `<input>`, put ` *` at the end
+of its label, and fix the helper sentence that says which fields are required. To make one
+optional, do the reverse. Do not add, remove or rename fields (see below).
+
 ## Stop and tell the person to ask Clay
 
-- The contact form: `workers/`, the form code and keys in `assets/js/main.js`, and the form
-  markup on the Contact page.
+- The plumbing of the contact form: `workers/`, the form code and keys in
+  `assets/js/main.js`, and adding, removing or renaming a form field or its `id` on the
+  Contact page. The server only accepts the fields it already knows about, so a new field
+  would be silently dropped.
 - Anything about the domain, DNS, email delivery or analytics.
 - The logo and brand files: `assets/img/brand-v6/` and `assets/brand/`. They are generated
   elsewhere and edits here would be overwritten.
